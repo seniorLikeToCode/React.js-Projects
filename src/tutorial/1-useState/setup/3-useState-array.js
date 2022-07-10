@@ -8,8 +8,16 @@ const UseStateArray = () => {
     else return setPeople([]);
   };
   const removeItem = (id) => {
-    let newPeople = people.filter((person) => person.id !== id);
-    setPeople(newPeople);
+
+    /* Non function approach to do things  */
+    // let newPeople = people.filter((person) => person.id !== id);
+    // setPeople(newPeople);
+
+    /* function approach to do things  */
+    setPeople((oldPeople) => {
+      let newPeople = oldPeople.filter((person) => person.id !== id);
+      return newPeople;
+    })
   }
   return (
     <>
